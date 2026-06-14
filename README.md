@@ -192,7 +192,7 @@ O sistema retornará um token JWT utilizado nos endpoints protegidos.
 
 ### Falha de autenticação
 
-![Falha](ecoafono/evidencias/4.0-Falha autenticacao.png)
+![Falha](ecoafono/evidencias/4.0-Falha%20autenticacao.png)
 
 ### Realizando autenticação
 
