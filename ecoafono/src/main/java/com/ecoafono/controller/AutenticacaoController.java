@@ -12,9 +12,12 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/login")
+@Tag(name = "Autenticação", description = "Endpoint responsável pelo login e geração do token JWT.")
 public class AutenticacaoController {
 
     @Autowired
@@ -23,7 +26,12 @@ public class AutenticacaoController {
     @Autowired
     private TokenService tokenService;
 
+
     @PostMapping
+    @Operation(
+            summary = "Realizar login",
+            description = "Autentica um usuário administrador e retorna um token JWT para acessar os endpoints protegidos."
+    )
     public ResponseEntity<DadosTokenJWT> efetuarLogin(@RequestBody @Valid DadosAutenticacao dados) {
         UsernamePasswordAuthenticationToken token =
                 new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
@@ -31,10 +39,6 @@ public class AutenticacaoController {
         Authentication authentication = manager.authenticate(token);
 
         UsuarioSistema usuario = (UsuarioSistema) authentication.getPrincipal();
-
-        if (usuario.getPerfil() != Role.ADMIN) {
-            return ResponseEntity.status(403).build();
-        }
 
         String tokenJWT = tokenService.gerarToken(usuario);
 

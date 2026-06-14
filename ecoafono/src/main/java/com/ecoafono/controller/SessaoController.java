@@ -2,25 +2,32 @@ package com.ecoafono.controller;
 
 import com.ecoafono.dto.DadosAgendamentoSessao;
 import com.ecoafono.dto.DadosDetalhamentoSessao;
-import com.ecoafono.service.SessaoService;
+import com.ecoafono.service.interfaces.ISessaoService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 import java.net.URI;
 
 @RestController
 @RequestMapping("/sessoes")
+@Tag(name = "Sessões", description = "Endpoints para criação e consulta de sessões fonoaudiológicas.")
 public class SessaoController {
 
     @Autowired
-    private SessaoService sessaoService;
+    private ISessaoService sessaoService;
 
     @PostMapping
     @Transactional
+    @Operation(
+            summary = "Criar sessão",
+            description = "Cria uma sessão para um usuário, selecionando exercícios compatíveis com sua faixa etária e objetivo."
+    )
     public ResponseEntity<DadosDetalhamentoSessao> criar(
             @RequestBody @Valid DadosAgendamentoSessao dados,
             UriComponentsBuilder uriBuilder
@@ -35,6 +42,10 @@ public class SessaoController {
     }
 
     @GetMapping("/{id}")
+    @Operation(
+            summary = "Buscar sessão por ID",
+            description = "Retorna os dados de uma sessão cadastrada, incluindo os exercícios associados."
+    )
     public ResponseEntity<DadosDetalhamentoSessao> buscarPorId(@PathVariable Long id) {
         return ResponseEntity.ok(sessaoService.buscarPorId(id));
     }

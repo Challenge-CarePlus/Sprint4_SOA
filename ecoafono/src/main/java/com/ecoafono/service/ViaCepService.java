@@ -2,18 +2,20 @@ package com.ecoafono.service;
 
 import com.ecoafono.dto.DadosEnderecoViaCep;
 import com.ecoafono.exception.CepInvalidoException;
+import com.ecoafono.service.interfaces.IViaCepService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-public class ViaCepService {
+public class ViaCepService implements IViaCepService {
 
     @Autowired
     private RestTemplate restTemplate;
 
     private static final String VIA_CEP_URL = "https://viacep.com.br/ws/{cep}/json/";
 
+    @Override
     public DadosEnderecoViaCep buscarEndereco(String cep) {
         String cepLimpo = cep.replaceAll("[^0-9]", "");
 
