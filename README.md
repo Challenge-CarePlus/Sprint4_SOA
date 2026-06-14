@@ -22,7 +22,7 @@ A aplicação utiliza arquitetura em camadas, banco de dados MySQL, autenticaç�
 
 # Tecnologias Utilizadas
 
-- Java 22
+- Java 21
 - Spring Boot 3.5.6
 - Spring Data JPA
 - Spring Security
@@ -134,8 +134,15 @@ GET /sessoes/{id}
 ## Clonar o projeto
 
 ```bash
-git clone <repositorio>
+git clone https://github.com/Challenge-CarePlus/Sprint4_SOA.git
 ```
+
+## Acessar a pasta do projeto
+
+```bash
+cd Sprint4_SOA/ecoafono
+```
+
 
 ## Configurar banco
 
@@ -145,7 +152,15 @@ spring.datasource.username=root
 spring.datasource.password=sua_senha
 ```
 
-## Executar
+## Executar aplicação
+
+Windows:
+
+```bash
+.\mvnw spring-boot:run
+```
+
+Linux/Mac:
 
 ```bash
 ./mvnw spring-boot:run
@@ -158,6 +173,31 @@ http://localhost:8080/swagger-ui/index.html
 ```
 
 ---
+# Como Rodar os Testes
+
+Windows:
+
+```bash
+.\mvnw test
+```
+
+Linux/Mac:
+
+```bash
+./mvnw test
+```
+
+Resultado esperado:
+
+```text
+BUILD SUCCESS
+Tests run: 15
+Failures: 0
+Errors: 0
+```
+
+---
+
 
 # Autenticação
 
