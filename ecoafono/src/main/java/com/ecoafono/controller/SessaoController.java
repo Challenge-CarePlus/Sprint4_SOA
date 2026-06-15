@@ -3,7 +3,6 @@ package com.ecoafono.controller;
 import com.ecoafono.dto.DadosAgendamentoSessao;
 import com.ecoafono.dto.DadosDetalhamentoSessao;
 import com.ecoafono.service.interfaces.ISessaoService;
-import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +22,6 @@ public class SessaoController {
     private ISessaoService sessaoService;
 
     @PostMapping
-    @Transactional
     @Operation(
             summary = "Criar sessão",
             description = "Cria uma sessão para um usuário, selecionando exercícios compatíveis com sua faixa etária e objetivo."

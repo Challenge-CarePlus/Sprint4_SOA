@@ -6,7 +6,6 @@ import com.ecoafono.enums.FaixaEtaria;
 import com.ecoafono.enums.Objetivo;
 import com.ecoafono.service.interfaces.IExercicioService;
 import io.swagger.v3.oas.annotations.Operation;
-import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +25,6 @@ public class ExercicioController {
     private IExercicioService exercicioService;
 
     @PostMapping
-    @Transactional
     @Operation(
             summary = "Cadastrar exercício",
             description = "Cadastra um novo exercício fonoaudiológico no sistema."

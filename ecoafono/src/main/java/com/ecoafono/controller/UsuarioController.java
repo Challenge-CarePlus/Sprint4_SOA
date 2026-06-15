@@ -4,7 +4,6 @@ import com.ecoafono.dto.DadosAtualizacaoPreferencias;
 import com.ecoafono.dto.DadosCadastroUsuario;
 import com.ecoafono.dto.DadosDetalhamentoUsuario;
 import com.ecoafono.service.interfaces.IUsuarioService;
-import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +23,6 @@ public class UsuarioController {
     private IUsuarioService usuarioService;
 
     @PostMapping
-    @Transactional
     @Operation(
             summary = "Cadastrar usuário",
             description = "Cadastra um novo usuário, consulta o endereço pelo CEP via ViaCEP e salva os dados no banco."
@@ -52,7 +50,6 @@ public class UsuarioController {
     }
 
     @PutMapping("/{id}/preferencias")
-    @Transactional
     @Operation(
             summary = "Atualizar preferências do usuário",
             description = "Atualiza a faixa etária e o objetivo do usuário para personalização dos exercícios."

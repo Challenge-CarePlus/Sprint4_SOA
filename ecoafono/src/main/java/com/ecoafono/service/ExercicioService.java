@@ -7,8 +7,10 @@ import com.ecoafono.enums.FaixaEtaria;
 import com.ecoafono.enums.Objetivo;
 import com.ecoafono.repository.ExercicioRepository;
 import com.ecoafono.service.interfaces.IExercicioService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 
@@ -19,6 +21,7 @@ public class ExercicioService implements IExercicioService {
     private ExercicioRepository exercicioRepository;
 
     @Override
+    @Transactional
     public DadosDetalhamentoExercicio cadastrar(DadosCadastroExercicio dados) {
         Exercicio exercicio = new Exercicio(dados);
         exercicioRepository.save(exercicio);
