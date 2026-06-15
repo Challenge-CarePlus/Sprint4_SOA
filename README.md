@@ -1,5 +1,21 @@
 # Ecoa Fono
 
+## 🧪 Testing, Compliance & Quality (Sprint 4)
+
+Em conformidade com os requisitos de entrega da Sprint 4, a validação do sistema foi estruturada em duas frentes: Planejamento Manual e Automação de API.
+
+### 🔗 Links Oficiais de Avaliação
+* **[Parte A] Plano de Testes Manuais (Azure Boards):** [https://dev.azure.com/aceti/Ecoa]
+    * *Nota: O planejamento engloba cenários de SOA, Mobile, Cybersecurity e IA. O professor avaliador já está adicionado como membro da organização no Azure.*
+* **[Parte B] Automação de Testes (Vídeo Execução):** [https://youtu.be/yxon4dD9IaY]
+    * *Nota: O vídeo demonstra a execução automatizada do Postman validando a segurança stateless, geração de JWT e proteção de rotas.*
+
+### 🛠️ Reproduzindo a Automação (Postman)
+Para reproduzir os testes automatizados da Parte B:
+1. Certifique-se de que a aplicação Spring Boot está rodando localmente.
+2. Importe o arquivo JSON da Collection do Postman (disponível na raiz deste repositório).
+3. Execute a Collection via "Run Collection" para validar as rotas.
+
 ## Integrantes
 
 - André de Sousa Neves – RM 553515
